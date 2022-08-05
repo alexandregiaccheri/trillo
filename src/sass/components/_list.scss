@@ -1,0 +1,35 @@
+@use "../abstracts" as *;
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-block: 7rem;
+
+  list-style: none;
+  border-bottom: 1px solid $color-gray-light-2;
+  border-top: 1px solid $color-gray-light-2;
+
+  &__item {
+    flex: 0 0 50%;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 1.1rem;
+      height: 1.1rem;
+
+      // LEGACY
+      background-image: url("../assets/chevron-thin-right.svg");
+      background-size: cover;
+
+      @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+        background-color: $color-primary;
+        background-image: none;
+        -webkit-mask-image: url("../assets/chevron-thin-right.svg");
+        mask-image: url("../assets/chevron-thin-right.svg");
+        -webkit-mask-size: cover;
+        mask-size: cover;
+      }
+    }
+  }
+}

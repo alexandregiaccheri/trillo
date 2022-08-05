@@ -1,0 +1,98 @@
+@use "../abstracts" as *;
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 3.5rem;
+  font-size: 1.4rem;
+
+  list-style: none;
+
+  @include responsive(landscape-tablet) {
+    flex-direction: row;
+    gap: 0;
+    margin: 0;
+  }
+
+  &__item {
+    position: relative;
+
+    @include responsive(landscape-tablet) {
+      flex: 1;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 3px;
+
+      background-color: $color-primary;
+      transform: scaleY(0);
+      transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+        background-color 0.1s;
+    }
+
+    &:hover::before,
+    &--active::before {
+      width: 100%;
+      transform: scaleY(1);
+    }
+
+    &:active::before {
+      background-color: $color-primary-light;
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 1.5rem 3rem;
+
+      text-decoration: none;
+      text-transform: uppercase;
+
+      color: $color-gray-light-1;
+      z-index: 10;
+
+      @include responsive(landscape-tablet) {
+        padding: 2rem;
+        justify-content: center;
+      }
+
+      @include responsive(portrait-tablet) {
+        flex-direction: column;
+        padding: 1.5rem 0.5rem;
+      }
+    }
+  }
+
+  &__icon {
+    height: 1.75rem;
+    width: 1.75rem;
+    margin-right: 2rem;
+    fill: currentColor;
+
+    @include responsive(portrait-tablet) {
+      margin-bottom: 0.7rem;
+      margin-right: 0;
+    }
+  }
+}
+
+.legal {
+  padding: 2.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+  color: $color-gray-light-4;
+
+  @include responsive(landscape-tablet) {
+    display: none;
+  }
+}

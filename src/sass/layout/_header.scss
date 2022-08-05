@@ -1,0 +1,23 @@
+@use "../abstracts" as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7rem;
+
+  @include responsive(phone) {
+    flex-wrap: wrap;
+    align-items: space-around;
+    height: 11rem;
+  }
+
+  font-size: 1.4rem;
+  background-color: $color-white;
+  border-bottom: 1px solid $color-gray-light-2;
+
+  &__logo {
+    height: 3.25rem;
+    margin-left: 2.2rem;
+  }
+}

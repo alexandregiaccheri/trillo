@@ -1,0 +1,42 @@
+@use "../abstracts" as *;
+
+.description {
+  flex: 0 0 60%;
+  padding: 3rem;
+
+  background-color: $color-white;
+  box-shadow: $shadow-light;
+
+  @include responsive(landscape-tablet) {
+    padding: 2rem;
+  }
+}
+
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+.recommend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  color: $color-gray-dark-3;
+
+  &__friends {
+    display: flex;
+  }
+
+  &__img {
+    box-sizing: content-box;
+    height: 4rem;
+    width: 4rem;
+
+    border-radius: 100vh;
+    border: 3px solid $color-white;
+
+    &:not(:last-child) {
+      margin-right: -2rem;
+    }
+  }
+}

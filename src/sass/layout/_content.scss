@@ -1,0 +1,9 @@
+@use "../abstracts" as *;
+
+.content {
+  display: flex;
+
+  @include responsive(landscape-tablet) {
+    flex-direction: column;
+  }
+}

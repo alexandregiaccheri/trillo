@@ -1,0 +1,93 @@
+@use "../abstracts" as *;
+@use "../base" as *;
+
+.btn {
+  cursor: pointer;
+  position: relative;
+
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  border-radius: 100vh;
+  border: none;
+  color: $color-white;
+  overflow: hidden;
+
+  &:hover {
+    background-image: linear-gradient(
+      to left,
+      $color-primary-light,
+      $color-primary-dark
+    );
+  }
+
+  & > * {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    transition: all 0.1s;
+  }
+
+  &__normal {
+    padding: 2rem 7.5rem;
+  }
+
+  &:hover &__normal {
+    transform: translateY(100%);
+  }
+
+  &__hover {
+    position: absolute;
+    top: -50px;
+    left: 0;
+
+    padding-block: 2rem;
+  }
+
+  &:hover &__hover {
+    top: 0;
+  }
+
+  &:focus {
+    animation: pulse 1s infinite;
+    outline: none;
+  }
+}
+
+.btn-inline {
+  cursor: pointer;
+  display: inline-block;
+  padding-bottom: 2px;
+
+  font-size: inherit;
+
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid currentColor;
+  color: $color-primary;
+  transition: all 0.2s;
+
+  & span {
+    margin-left: 3px;
+    transition: margin-left 0.2s;
+  }
+
+  &:hover {
+    color: $color-gray-dark-1;
+
+    & span {
+      margin-left: 8px;
+    }
+  }
+
+  &:focus {
+    animation: pulse 1s infinite;
+    outline: none;
+  }
+}
